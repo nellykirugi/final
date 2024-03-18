@@ -1,5 +1,17 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Link from "next/link"
+import {UserIcon}from '@heroicons/react/24/solid'
+
+import { Button } from "@/components/ui/button"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"
+export function TooltipDemo() {}
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -11,7 +23,79 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+      <div className=' bg-lime-300 items-center text-black flex space-x-5 px-8 py-1  shadow-black shadow-md w-screen pr-4'>
+    <img 
+    className='w-[150px]'
+    src="/jkuatLogo.png" 
+    alt="" />
+     <UserIcon className='text-black cursor-pointer h-10 w-10 absolute right-10'/>
+   </div>
+      <div className=' grid grid-cols-5 text-black items justify-items-end font-bold mt-5 mr-2 '>
+   <Link href='/home'>
+   <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="outline">Home</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Starting point of a website</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+    </Link>
+    <Link href='/aboutus'>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="outline">About us</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>About the farm and what the farm does</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+       </Link>  
+    <Link href='/products'>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="outline">Products</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p>Contains essential information about an item</p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+    </Link> 
+    <Link href='/contactus'>
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="outline">Contact us</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p> Reach out to us  </p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+      </Link>  
+     <Link href='/virtualassistant'>
+     <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>
+          <Button variant="outline">virtual assistant</Button>
+        </TooltipTrigger>
+        <TooltipContent>
+          <p> Provides guide through the sytem  </p>
+        </TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+      </Link> 
+  
+      </div>
+        {children}
+        </body>
     </html>
   );
 }
