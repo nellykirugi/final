@@ -1,9 +1,10 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Link from "next/link"
-import {UserIcon}from '@heroicons/react/24/solid'
-
+import { ClerkProvider } from '@clerk/nextjs'
+import Link from "next/link";
+import { UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button"
+import { Toaster } from "@/components/ui/toaster"
 import {
   Tooltip,
   TooltipContent,
@@ -11,6 +12,7 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"
 export function TooltipDemo() {}
+
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -22,14 +24,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+  <ClerkProvider>
     <html lang="en">
       <body className={inter.className}>
+
       <div className=' bg-lime-300 items-center text-black flex space-x-5 px-8 py-1  shadow-black shadow-md w-screen pr-4'>
     <img 
     className='w-[150px]'
     src="/jkuatLogo.png" 
     alt="" />
-     <UserIcon className='text-black cursor-pointer h-10 w-10 absolute right-10'/>
+    <UserButton/>
+     {/* <UserIcon className='text-black cursor-pointer h-10 w-10 absolute right-10'/> */}
    </div>
       <div className=' grid grid-cols-5 text-black items justify-items-end font-bold mt-5 mr-2 '>
    <Link href='/home'>
@@ -95,7 +100,10 @@ export default function RootLayout({ children }) {
   
       </div>
         {children}
-        </body>
+        <Toaster />
+        </body> 
     </html>
+  </ClerkProvider>
+  
   );
 }

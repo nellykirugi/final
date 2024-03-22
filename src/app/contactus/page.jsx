@@ -1,5 +1,6 @@
-
+'use client'
 import React from 'react'
+
 import {PhoneIcon,EnvelopeIcon,StarIcon}from '@heroicons/react/24/solid'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
@@ -8,6 +9,7 @@ export function InputDemo(){}
 export function ButtonDemo(){}
 
 const page = () => {
+
   return (
     <div className='bg-white'>
 
@@ -63,6 +65,7 @@ const page = () => {
       </div>
       </div>
       </div>
+
       <footer className='bg-lime-300 items justify-center  text-black font-bold flex space-x-5 px-10 py-5 w-screen mt-10 my-1'> All rights reserved </footer>
     </div>
   )

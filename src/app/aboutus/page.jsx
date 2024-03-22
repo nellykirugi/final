@@ -1,7 +1,8 @@
+'use client'
 import React from 'react'
 
-
 const page = () => {
+
   return (
     <div className='bg-white '>
 
@@ -25,7 +26,8 @@ const page = () => {
 
       </div>
       </div>
-      <footer className='bg-lime-300 items justify-center text-black font-bold flex space-x-5 px-10 py-5 w-screen mt-10 my-1'> All rights reserved </footer>
+
+       <footer className='bg-lime-300 items justify-center text-black font-bold flex space-x-5 px-10 py-5 w-screen mt-10 my-1'> All rights reserved </footer>
     </div>
   )
 }
