@@ -33,8 +33,8 @@ export default function RootLayout({ children }) {
     className='w-[150px]'
     src="/jkuatLogo.png" 
     alt="" />
-    <UserButton/>
-     {/* <UserIcon className='text-black cursor-pointer h-10 w-10 absolute right-10'/> */}
+    <UserButton className='items justify-items-end'/>
+   
    </div>
       <div className=' grid grid-cols-5 text-black items justify-items-end font-bold mt-5 mr-2 '>
    <Link href='/home'>

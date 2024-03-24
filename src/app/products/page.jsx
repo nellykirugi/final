@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 
-import { PlusIcon,MinusIcon,MagnifyingGlassIcon} from '@heroicons/react/24/solid'
+import { PlusIcon,MinusIcon,ShoppingCartIcon,MagnifyingGlassIcon} from '@heroicons/react/24/solid'
 import { Button } from "@/components/ui/button"
 export function ButtonDemo() {}
 
@@ -17,6 +17,9 @@ const page = () => {
         placeholder='Search ' 
         type="text" />
         <MagnifyingGlassIcon className='text-black cursor-pointer h-5 w-5 absolute right-5 top-7'/>
+        <div>
+        <ShoppingCartIcon className='text-black cursor-pointer h-5 w-5 float-right top-7'/>
+        </div>
       </div>
       </div>
 
@@ -64,7 +67,7 @@ const page = () => {
     alt="" />
         <div className='ml-3 '>
       <ul> Oyster mushrooms</ul>
-      <ul>kshs 150/250g </ul>
+      <ul>kshs 265/kg </ul>
       <div className='flex items-center'>
       <MinusIcon className='text-black h-5 w-5'/>
       <Button className='w-[5px]'>1</Button>

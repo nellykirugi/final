@@ -8,6 +8,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+
 } from "@/components/ui/carousel"
 
 export default function CarouselDemo() {
@@ -27,7 +28,7 @@ export default function CarouselDemo() {
       <CarouselContent>
         {data.map((d, index) => (
           <CarouselItem key={index}>
-            <div className="p-1 ml-20">
+            <div className="p-1 ml-20 flex justify-center ">
               <Card>
                 <CardContent className="flex aspect-square items-center justify-center p-6 ">
                 {d}
@@ -41,6 +42,7 @@ export default function CarouselDemo() {
       <CarouselPrevious />
       <CarouselNext />
     </Carousel>
+    <footer className='bg-lime-300 items justify-center text-black font-bold flex space-x-5 px-10 py-5 w-screen mt-20 my-1'> All rights reserved </footer>
     </div>
   )
 }
