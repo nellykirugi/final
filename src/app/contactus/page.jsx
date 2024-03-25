@@ -1,15 +1,35 @@
 'use client'
-import React from 'react'
-
+import React,{useState} from 'react'
+import axios from 'axios'
 import {PhoneIcon,EnvelopeIcon,StarIcon}from '@heroicons/react/24/solid'
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { useToast } from '@/components/ui/use-toast'
 
 export function InputDemo(){}
 export function ButtonDemo(){}
 
 const page = () => {
-
+  const [name,setName] = useState('')
+  const [phone,setPhone] = useState('')
+  const [email,setEmail] = useState('')
+  const [message,setMessage] = useState('')
+  const {toast} = useToast()
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    const res = await axios.post("http://localhost:8000/api/message",{
+      username:name,
+      email,
+      phone,
+      message
+    })
+    console.log(res.data.message)
+    if (res.data.message){
+      toast({
+        title:res.data.message
+      })
+    }
+  }
   return (
     <div className='bg-white'>
 
@@ -55,14 +75,18 @@ const page = () => {
       </div>
       <div className='w-3/4 float-right items justify-center h-screen  ml-2 my-0'> 
       <h1 className='font-bold text-lg ml-8'> Send Us A Feedback</h1>
-      <div className='grid grid-rows-4 gap-8 px-20'>
-      { <Input type="name" placeholder="Name" />}
-      {  <Input type="email" placeholder="Email" />}
-      { <Input type="phone number" placeholder="Phone Number" /> }
-      { <Input type="message" placeholder="Message" /> }
-      <Button className='bg-slate-400 text-black py-1 w-[10%] float-right ml-20 '>Submit</Button>
-     
-      </div>
+        <form onSubmit={handleSubmit}>
+        <div className='grid grid-rows-4 gap-8 px-20'>
+
+        <Input onChange={(e) => setName(e.target.value)} name="name" placeholder="Name" />
+        <Input onChange={(e) => setEmail(e.target.value)} name="email" placeholder="Email" />
+        <Input onChange={(e) => setPhone(e.target.value)}  name="phone" placeholder="Phone Number" />
+        <Input onChange={(e) => setMessage(e.target.value)} name="message" placeholder="Message" /> 
+
+        <Button type='submit' className=''>Submit</Button>
+      
+        </div>
+        </form>
       </div>
       </div>
 

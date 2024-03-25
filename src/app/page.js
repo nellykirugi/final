@@ -1,6 +1,26 @@
+'use client'
 import Image from "next/image";
+import { useEffect } from "react";
+import { useUser } from "@clerk/clerk-react";
+import axios from "axios";
 
-export default function Home() {
+export default async function Home() {
+  const user = useUser()
+  
+  const {username,email_addresses} = user
+  console.log(user)
+  // const email = email_addresses[0].email_address
+
+  useEffect(() => {
+    const createUser = async () => {
+      await axios.post('http://localhost:8000/api/user',{
+        username,
+        email
+      })
+    }
+    // createUser()
+  },[])
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
